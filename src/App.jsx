@@ -1,4 +1,3 @@
-
 import { useState } from 'react'
 import './App.css'
 
@@ -26,14 +25,14 @@ export default function App() {
       alert('É necessário aceitar os termos da LGPD para continuar.')
       return
     }
-    
+
     const message = `Olá! Tenho interesse no consórcio imobiliário do Banco Jota.
 
 Nome: ${formData.name}
 Email: ${formData.email}
 Telefone: ${formData.phone}
 Mensagem: ${formData.message}`
-    
+
     const whatsappUrl = `https://wa.me/5511999999999?text=${encodeURIComponent(message)}`
     window.open(whatsappUrl, '_blank')
   }
@@ -57,7 +56,7 @@ Mensagem: ${formData.message}`
                 className="h-12 w-auto"
               />
             </div>
-            
+
             {/* Desktop Menu */}
             <div className="hidden md:flex items-center space-x-8">
               <button onClick={() => scrollToSection('inicio')} className="text-bj-black hover:text-bj-blue transition-colors">Início</button>
@@ -115,7 +114,7 @@ Mensagem: ${formData.message}`
                 </button>
               </div>
             </div>
-            
+
             <div className="relative">
               <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 text-center">
                 <div className="text-6xl mb-4">🏠</div>
@@ -319,7 +318,7 @@ Mensagem: ${formData.message}`
       </section>
 
       {/* Testimonials */}
-      <section className="section-padding bg-white">
+      <section className="section-padding bg-bj-blue-dark">
         <div className="container-custom">
           <div className="text-center mb-16">
             <h2 className="text-3xl lg:text-4xl font-bold text-bj-black mb-6">
@@ -460,7 +459,7 @@ Mensagem: ${formData.message}`
                   onChange={handleInputChange}
                   className="w-full px-4 py-3 bg-white/20 border border-white/30 text-white rounded-lg focus:ring-2 focus:ring-white focus:border-transparent placeholder-gray-200 mb-4"
                 ></textarea>
-                
+
                 <label className="flex items-start mb-6">
                   <input
                     type="checkbox"
@@ -487,7 +486,7 @@ Mensagem: ${formData.message}`
       </section>
 
       {/* FAQ Section */}
-      <section className="section-padding bg-white">
+      <section className="section-padding bg-bj-blue-dark">
         <div className="container-custom">
           <div className="text-center mb-16">
             <h2 className="text-3xl lg:text-4xl font-bold text-bj-black mb-6">
@@ -533,7 +532,7 @@ Mensagem: ${formData.message}`
                 Especialistas em consórcio imobiliário com atendimento humanizado e consultivo.
               </p>
             </div>
-            
+
             <div>
               <h3 className="font-semibold mb-4">Links Rápidos</h3>
               <ul className="space-y-2">
@@ -543,7 +542,7 @@ Mensagem: ${formData.message}`
                 <li><button onClick={() => scrollToSection('contato')} className="text-gray-300 hover:text-white">Contato</button></li>
               </ul>
             </div>
-            
+
             <div>
               <h3 className="font-semibold mb-4">Legal</h3>
               <ul className="space-y-2">
@@ -552,7 +551,7 @@ Mensagem: ${formData.message}`
                 <li><a href="#lgpd" className="text-gray-300 hover:text-white">LGPD</a></li>
               </ul>
             </div>
-            
+
             <div>
               <h3 className="font-semibold mb-4">Contato</h3>
               <div className="space-y-2 text-gray-300">
@@ -562,7 +561,7 @@ Mensagem: ${formData.message}`
               </div>
             </div>
           </div>
-          
+
           <div className="border-t border-gray-700 pt-8 text-center text-gray-300">
             <p>&copy; 2024 Banco Jota. Todos os direitos reservados.</p>
           </div>
