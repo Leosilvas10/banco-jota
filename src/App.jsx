@@ -117,7 +117,47 @@ Mensagem: ${formData.message}`
 
             <div className="relative">
               <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 text-center">
-                <div className="text-6xl mb-4">🏠</div>
+                {/* Área de Upload de Vídeo */}
+                <div className="mb-6">
+                  <div className="border-2 border-dashed border-white/30 rounded-xl p-8 bg-white/5 hover:bg-white/10 transition-colors">
+                    <div className="text-4xl mb-4">📹</div>
+                    <h4 className="text-lg font-semibold mb-2">Vídeo Explicativo</h4>
+                    <p className="text-gray-200 text-sm mb-4">Clique para fazer upload do vídeo</p>
+                    <input 
+                      type="file" 
+                      accept="video/*"
+                      className="hidden"
+                      id="video-upload"
+                      onChange={(e) => {
+                        const file = e.target.files[0];
+                        if (file) {
+                          const videoUrl = URL.createObjectURL(file);
+                          document.getElementById('video-preview').src = videoUrl;
+                          document.getElementById('video-preview').style.display = 'block';
+                          document.getElementById('upload-placeholder').style.display = 'none';
+                        }
+                      }}
+                    />
+                    <label 
+                      htmlFor="video-upload" 
+                      className="cursor-pointer bg-white/20 hover:bg-white/30 px-4 py-2 rounded-lg transition-colors text-sm"
+                    >
+                      Escolher Vídeo
+                    </label>
+                    <div id="upload-placeholder" className="mt-4">
+                      <p className="text-xs text-gray-300">Formatos: MP4, AVI, MOV</p>
+                    </div>
+                    <video 
+                      id="video-preview"
+                      className="w-full rounded-lg mt-4 hidden"
+                      controls
+                      style={{ maxHeight: '200px' }}
+                    >
+                      Seu navegador não suporta vídeos.
+                    </video>
+                  </div>
+                </div>
+
                 <h3 className="text-2xl font-bold mb-4">Casa Própria</h3>
                 <p className="text-gray-200 mb-6">Sem juros, sem entrada obrigatória</p>
                 <div className="bg-white/20 rounded-lg p-4">
