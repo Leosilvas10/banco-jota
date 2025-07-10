@@ -1,0 +1,89 @@
+Resumo do Projeto de Landing Page – Banco Jota (One Page)
+Objetivo:
+Landing page one page para captação e qualificação de leads de consórcio consultivo do Banco Jota, com formulário integrado ao WhatsApp e IA de atendimento.
+
+Stack de Desenvolvimento
+React
+
+JavaScript
+
+Tailwind CSS
+
+Next.js
+
+A landing page será desenvolvida utilizando Next.js (React), com Tailwind CSS para estilização e JavaScript puro. O projeto será 100% responsivo, com layout mobile-first, SEO-friendly e performance otimizada.
+
+Requisitos e Especificações
+One Page Responsiva:
+Layout único, adaptado a todos os dispositivos, navegação fluida.
+
+Menu de Navegação (Nav):
+Links internos (âncoras) para rolagem suave até as seções: Início, Sobre, Benefícios, Como Funciona, Depoimentos, Fale Conosco.
+
+Header de Impacto:
+Título forte, diferencial do atendimento humano e consultivo.
+
+Seção de Vídeo ou Imagem:
+Espaço para vídeo institucional ou imagem de destaque.
+
+Sobre:
+Descrição clara da atuação, diferencial e foco em consultoria do Banco Jota.
+
+Benefícios:
+Lista visual de benefícios do consórcio consultivo pelo Banco Jota.
+
+Como Funciona:
+Passo a passo simples:
+
+Preenchimento do formulário
+
+Contato via WhatsApp
+
+Qualificação consultiva
+
+Proposta personalizada
+
+Acompanhamento até contemplação e pós-venda
+
+Depoimentos / Prova Social:
+Espaço para depoimentos de clientes reais (ou fictícios).
+
+Formulário de Lead:
+Integração ao WhatsApp, campos essenciais, consentimento LGPD, redirecionamento pós-envio para página de “Obrigado”.
+
+CTA (Chamada para Ação):
+Botões visíveis, textos claros: “Fale com um Consultor”, “Simule seu Consórcio”, etc.
+
+Rodapé Completo:
+Links para Política de Privacidade, Termos de Uso, LGPD, redes sociais, WhatsApp, endereço, e-mail.
+
+Páginas Legais e LGPD:
+
+Política de Privacidade
+
+Termos de Uso
+
+LGPD
+Checkbox de consentimento obrigatório no formulário.
+
+Design e Performance:
+Visual moderno e elegante, alinhado à marca.
+Animações leves em botões e seções.
+SEO otimizado (Next.js), meta tags, sitemap e estrutura amigável.
+Layout mobile-first.
+Imagens otimizadas.
+
+Funcionalidades Extras:
+
+FAQ (opcional)
+
+Área para baixar e-books ou materiais
+
+reCAPTCHA ou similar contra spam
+
+Popups ou banners de aviso sobre cookies e LGPD
+
+Documentação ou README simples para edição futura
+
+Prompt para Gerador ou Desenvolvedor
+Crie uma landing page one page para captação de leads de consórcio do Banco Jota, utilizando React, JavaScript, Tailwind CSS e Next.js. O projeto deve ser responsivo, moderno, mobile-first, com navegação por âncoras (scroll suave), formulário integrado ao WhatsApp e automação de IA, header de impacto, seções de sobre, benefícios, como funciona, depoimentos, CTA, rodapé completo e páginas de Política de Privacidade, Termos de Uso e LGPD. O formulário deve ter consentimento LGPD (checkbox). Otimize para SEO e performance. Adote copywriting de conversão, design visual elegante e estrutura fácil de editar. Inclua README básico de instrução. Menu nav deve apontar para blocos internos da página.
