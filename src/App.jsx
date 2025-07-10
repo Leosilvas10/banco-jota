@@ -3,6 +3,7 @@ import './App.css'
 
 export default function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [openFaq, setOpenFaq] = useState(null)
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -532,27 +533,128 @@ Mensagem: ${formData.message}`
             <h2 className="text-3xl lg:text-4xl font-bold text-white mb-6">
               Perguntas Frequentes
             </h2>
+            <p className="text-gray-300 text-lg">Tire suas dúvidas sobre consórcio imobiliário</p>
           </div>
 
-          <div className="max-w-3xl mx-auto space-y-6">
-            <div className="bg-gray-800 rounded-xl p-6">
-              <h3 className="font-semibold text-white mb-3">O que é consórcio imobiliário?</h3>
-              <p className="text-gray-300">É um sistema de autofinanciamento para aquisição de imóveis, onde um grupo de pessoas se reúne para formar um fundo comum e adquirir bens de forma programada.</p>
+          <div className="max-w-3xl mx-auto space-y-4">
+            {/* FAQ Item 1 */}
+            <div className="bg-gray-800 rounded-xl overflow-hidden transition-all duration-300 hover:bg-gray-750">
+              <button 
+                className="w-full px-6 py-5 text-left flex justify-between items-center focus:outline-none"
+                onClick={() => setOpenFaq(openFaq === 0 ? null : 0)}
+              >
+                <h3 className="font-semibold text-white text-lg">O que é consórcio imobiliário?</h3>
+                <div className={`transition-transform duration-300 ${openFaq === 0 ? 'rotate-180' : ''}`}>
+                  <svg className="w-5 h-5 text-bj-blue-light" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  </svg>
+                </div>
+              </button>
+              <div className={`overflow-hidden transition-all duration-300 ${openFaq === 0 ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}>
+                <div className="px-6 pb-5">
+                  <p className="text-gray-300 leading-relaxed">É um sistema de autofinanciamento para aquisição de imóveis, onde um grupo de pessoas se reúne para formar um fundo comum e adquirir bens de forma programada. É regulamentado pelo Banco Central e oferece mais flexibilidade que o financiamento tradicional.</p>
+                </div>
+              </div>
             </div>
 
-            <div className="bg-gray-800 rounded-xl p-6">
-              <h3 className="font-semibold text-white mb-3">Preciso dar entrada?</h3>
-              <p className="text-gray-300">Não é obrigatório dar entrada no consórcio. Você pode participar pagando apenas as parcelas mensais.</p>
+            {/* FAQ Item 2 */}
+            <div className="bg-gray-800 rounded-xl overflow-hidden transition-all duration-300 hover:bg-gray-750">
+              <button 
+                className="w-full px-6 py-5 text-left flex justify-between items-center focus:outline-none"
+                onClick={() => setOpenFaq(openFaq === 1 ? null : 1)}
+              >
+                <h3 className="font-semibold text-white text-lg">Preciso dar entrada?</h3>
+                <div className={`transition-transform duration-300 ${openFaq === 1 ? 'rotate-180' : ''}`}>
+                  <svg className="w-5 h-5 text-bj-blue-light" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  </svg>
+                </div>
+              </button>
+              <div className={`overflow-hidden transition-all duration-300 ${openFaq === 1 ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}>
+                <div className="px-6 pb-5">
+                  <p className="text-gray-300 leading-relaxed">Não é obrigatório dar entrada no consórcio. Você pode participar pagando apenas as parcelas mensais. Porém, dar um lance (entrada) pode acelerar sua contemplação.</p>
+                </div>
+              </div>
             </div>
 
-            <div className="bg-gray-800 rounded-xl p-6">
-              <h3 className="font-semibold text-white mb-3">Como funciona a contemplação?</h3>
-              <p className="text-gray-300">A contemplação acontece por sorteio mensal ou por lance. Cada grupo tem assembleia mensal para contemplar participantes.</p>
+            {/* FAQ Item 3 */}
+            <div className="bg-gray-800 rounded-xl overflow-hidden transition-all duration-300 hover:bg-gray-750">
+              <button 
+                className="w-full px-6 py-5 text-left flex justify-between items-center focus:outline-none"
+                onClick={() => setOpenFaq(openFaq === 2 ? null : 2)}
+              >
+                <h3 className="font-semibold text-white text-lg">Como funciona a contemplação?</h3>
+                <div className={`transition-transform duration-300 ${openFaq === 2 ? 'rotate-180' : ''}`}>
+                  <svg className="w-5 h-5 text-bj-blue-light" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  </svg>
+                </div>
+              </button>
+              <div className={`overflow-hidden transition-all duration-300 ${openFaq === 2 ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}>
+                <div className="px-6 pb-5">
+                  <p className="text-gray-300 leading-relaxed">A contemplação acontece de duas formas: por sorteio mensal (gratuito) ou por lance (oferta de valor). Cada grupo tem assembleia mensal para contemplar participantes. Você pode ser contemplado a qualquer momento!</p>
+                </div>
+              </div>
             </div>
 
-            <div className="bg-gray-800 rounded-xl p-6">
-              <h3 className="font-semibold text-white mb-3">Qual a diferença para o financiamento?</h3>
-              <p className="text-gray-300">No consórcio não há juros, apenas taxa de administração. As parcelas são fixas e você tem mais flexibilidade na escolha do imóvel.</p>
+            {/* FAQ Item 4 */}
+            <div className="bg-gray-800 rounded-xl overflow-hidden transition-all duration-300 hover:bg-gray-750">
+              <button 
+                className="w-full px-6 py-5 text-left flex justify-between items-center focus:outline-none"
+                onClick={() => setOpenFaq(openFaq === 3 ? null : 3)}
+              >
+                <h3 className="font-semibold text-white text-lg">Qual a diferença para o financiamento?</h3>
+                <div className={`transition-transform duration-300 ${openFaq === 3 ? 'rotate-180' : ''}`}>
+                  <svg className="w-5 h-5 text-bj-blue-light" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  </svg>
+                </div>
+              </button>
+              <div className={`overflow-hidden transition-all duration-300 ${openFaq === 3 ? 'max-h-0 opacity-0' : 'max-h-96 opacity-100'}`}>
+                <div className="px-6 pb-5">
+                  <p className="text-gray-300 leading-relaxed">No consórcio não há juros, apenas taxa de administração (muito menor). As parcelas são fixas e não sofrem correção de juros. Você também tem mais flexibilidade na escolha do imóvel e pode usar o crédito para reforma ou quitação de financiamento.</p>
+                </div>
+              </div>
+            </div>
+
+            {/* FAQ Item 5 */}
+            <div className="bg-gray-800 rounded-xl overflow-hidden transition-all duration-300 hover:bg-gray-750">
+              <button 
+                className="w-full px-6 py-5 text-left flex justify-between items-center focus:outline-none"
+                onClick={() => setOpenFaq(openFaq === 4 ? null : 4)}
+              >
+                <h3 className="font-semibold text-white text-lg">Posso usar o FGTS?</h3>
+                <div className={`transition-transform duration-300 ${openFaq === 4 ? 'rotate-180' : ''}`}>
+                  <svg className="w-5 h-5 text-bj-blue-light" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  </svg>
+                </div>
+              </button>
+              <div className={`overflow-hidden transition-all duration-300 ${openFaq === 4 ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}>
+                <div className="px-6 pb-5">
+                  <p className="text-gray-300 leading-relaxed">Sim! Você pode usar o FGTS para dar lance e acelerar sua contemplação, ou para abater o valor das parcelas mensais após ser contemplado. É uma excelente estratégia para otimizar seu investimento.</p>
+                </div>
+              </div>
+            </div>
+
+            {/* FAQ Item 6 */}
+            <div className="bg-gray-800 rounded-xl overflow-hidden transition-all duration-300 hover:bg-gray-750">
+              <button 
+                className="w-full px-6 py-5 text-left flex justify-between items-center focus:outline-none"
+                onClick={() => setOpenFaq(openFaq === 5 ? null : 5)}
+              >
+                <h3 className="font-semibold text-white text-lg">E se eu quiser sair do consórcio?</h3>
+                <div className={`transition-transform duration-300 ${openFaq === 5 ? 'rotate-180' : ''}`}>
+                  <svg className="w-5 h-5 text-bj-blue-light" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  </svg>
+                </div>
+              </button>
+              <div className={`overflow-hidden transition-all duration-300 ${openFaq === 5 ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}>
+                <div className="px-6 pb-5">
+                  <p className="text-gray-300 leading-relaxed">Você pode solicitar o cancelamento a qualquer momento. O valor pago será devolvido ao final do grupo, descontada a taxa de administração. É importante avaliar bem antes de cancelar, pois você perde a oportunidade de contemplação.</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
