@@ -44,31 +44,31 @@ Mensagem: ${formData.message}`
   }
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-gray-900">
       {/* Navigation */}
-      <nav className="fixed top-0 w-full bg-white shadow-lg z-50">
+      <nav className="fixed top-0 w-full bg-gray-900 shadow-lg z-50">
         <div className="container-custom">
           <div className="flex justify-between items-center py-4">
             <div className="flex items-center">
               <img 
                 src="/attached_assets/logo-banco-jota_1752187109762.png" 
                 alt="Banco Jota" 
-                className="h-12 w-auto"
+                className="h-12 w-auto brightness-0 invert"
               />
             </div>
 
             {/* Desktop Menu */}
             <div className="hidden md:flex items-center space-x-8">
-              <button onClick={() => scrollToSection('inicio')} className="text-bj-black hover:text-bj-blue transition-colors">Início</button>
-              <button onClick={() => scrollToSection('sobre')} className="text-bj-black hover:text-bj-blue transition-colors">Sobre</button>
-              <button onClick={() => scrollToSection('beneficios')} className="text-bj-black hover:text-bj-blue transition-colors">Benefícios</button>
-              <button onClick={() => scrollToSection('como-funciona')} className="text-bj-black hover:text-bj-blue transition-colors">Como Funciona</button>
+              <button onClick={() => scrollToSection('inicio')} className="text-white hover:text-bj-blue-light transition-colors">Início</button>
+              <button onClick={() => scrollToSection('sobre')} className="text-white hover:text-bj-blue-light transition-colors">Sobre</button>
+              <button onClick={() => scrollToSection('beneficios')} className="text-white hover:text-bj-blue-light transition-colors">Benefícios</button>
+              <button onClick={() => scrollToSection('como-funciona')} className="text-white hover:text-bj-blue-light transition-colors">Como Funciona</button>
               <button onClick={() => scrollToSection('contato')} className="bg-bj-blue hover:bg-bj-blue-dark text-white px-6 py-2 rounded-lg transition-all">Simular</button>
             </div>
 
             {/* Mobile Menu Button */}
             <button 
-              className="md:hidden text-bj-black"
+              className="md:hidden text-white"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -79,12 +79,12 @@ Mensagem: ${formData.message}`
 
           {/* Mobile Menu */}
           {isMenuOpen && (
-            <div className="md:hidden py-4 border-t border-gray-200">
+            <div className="md:hidden py-4 border-t border-gray-700">
               <div className="flex flex-col space-y-4">
-                <button onClick={() => scrollToSection('inicio')} className="text-left text-bj-black hover:text-bj-blue">Início</button>
-                <button onClick={() => scrollToSection('sobre')} className="text-left text-bj-black hover:text-bj-blue">Sobre</button>
-                <button onClick={() => scrollToSection('beneficios')} className="text-left text-bj-black hover:text-bj-blue">Benefícios</button>
-                <button onClick={() => scrollToSection('como-funciona')} className="text-left text-bj-black hover:text-bj-blue">Como Funciona</button>
+                <button onClick={() => scrollToSection('inicio')} className="text-left text-white hover:text-bj-blue-light">Início</button>
+                <button onClick={() => scrollToSection('sobre')} className="text-left text-white hover:text-bj-blue-light">Sobre</button>
+                <button onClick={() => scrollToSection('beneficios')} className="text-left text-white hover:text-bj-blue-light">Benefícios</button>
+                <button onClick={() => scrollToSection('como-funciona')} className="text-left text-white hover:text-bj-blue-light">Como Funciona</button>
                 <button onClick={() => scrollToSection('contato')} className="bg-bj-blue hover:bg-bj-blue-dark text-white px-6 py-2 rounded-lg transition-all text-center mt-4">Simular</button>
               </div>
             </div>
@@ -132,14 +132,14 @@ Mensagem: ${formData.message}`
       </section>
 
       {/* About Section */}
-      <section id="sobre" className="section-padding bg-gray-50">
+      <section id="sobre" className="section-padding bg-gray-900">
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-3xl lg:text-4xl font-bold text-bj-black mb-6">
+              <h2 className="text-3xl lg:text-4xl font-bold text-white mb-6">
                 Banco Jota: Especialistas em Consórcio Imobiliário
               </h2>
-              <p className="text-gray-600 mb-6 text-lg">
+              <p className="text-gray-300 mb-6 text-lg">
                 Com anos de experiência no mercado, oferecemos atendimento consultivo personalizado para cada perfil de cliente. Nossa missão é tornar acessível o sonho da casa própria.
               </p>
               <div className="space-y-4">
@@ -149,7 +149,7 @@ Mensagem: ${formData.message}`
                       <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
                     </svg>
                   </div>
-                  <span className="text-gray-700">Atendimento humanizado e consultivo</span>
+                  <span className="text-gray-300">Atendimento humanizado e consultivo</span>
                 </div>
                 <div className="flex items-center space-x-3">
                   <div className="w-6 h-6 bg-bj-blue rounded-full flex items-center justify-center">
@@ -157,7 +157,7 @@ Mensagem: ${formData.message}`
                       <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
                     </svg>
                   </div>
-                  <span className="text-gray-700">Especialistas em crédito imobiliário</span>
+                  <span className="text-gray-300">Especialistas em crédito imobiliário</span>
                 </div>
                 <div className="flex items-center space-x-3">
                   <div className="w-6 h-6 bg-bj-blue rounded-full flex items-center justify-center">
@@ -165,7 +165,7 @@ Mensagem: ${formData.message}`
                       <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
                     </svg>
                   </div>
-                  <span className="text-gray-700">Acompanhamento durante todo o processo</span>
+                  <span className="text-gray-300">Acompanhamento durante todo o processo</span>
                 </div>
               </div>
             </div>
@@ -192,13 +192,13 @@ Mensagem: ${formData.message}`
       </section>
 
       {/* Benefits Section */}
-      <section id="beneficios" className="section-padding bg-white">
+      <section id="beneficios" className="section-padding bg-gray-800">
         <div className="container-custom">
           <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl font-bold text-bj-black mb-6">
+            <h2 className="text-3xl lg:text-4xl font-bold text-white mb-6">
               Vantagens do Consórcio Imobiliário
             </h2>
-            <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+            <p className="text-gray-300 text-lg max-w-2xl mx-auto">
               Conheça todos os benefícios que fazem do consórcio a melhor opção para conquistar seu imóvel
             </p>
           </div>
@@ -208,77 +208,77 @@ Mensagem: ${formData.message}`
               <div className="w-16 h-16 bg-bj-blue rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
                 <span className="text-2xl">🏠</span>
               </div>
-              <h3 className="text-xl font-semibold text-bj-black mb-2">Sem Juros</h3>
-              <p className="text-gray-600">Parcelas fixas sem juros, apenas taxa de administração</p>
+              <h3 className="text-xl font-semibold text-white mb-2">Sem Juros</h3>
+              <p className="text-gray-300">Parcelas fixas sem juros, apenas taxa de administração</p>
             </div>
 
             <div className="text-center group">
               <div className="w-16 h-16 bg-bj-blue rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
                 <span className="text-2xl">💰</span>
               </div>
-              <h3 className="text-xl font-semibold text-bj-black mb-2">Sem Entrada</h3>
-              <p className="text-gray-600">Não é obrigatório dar entrada para participar</p>
+              <h3 className="text-xl font-semibold text-white mb-2">Sem Entrada</h3>
+              <p className="text-gray-300">Não é obrigatório dar entrada para participar</p>
             </div>
 
             <div className="text-center group">
               <div className="w-16 h-16 bg-bj-blue rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
                 <span className="text-2xl">📊</span>
               </div>
-              <h3 className="text-xl font-semibold text-bj-black mb-2">Parcelas Fixas</h3>
-              <p className="text-gray-600">Valor das parcelas não sofre alteração</p>
+              <h3 className="text-xl font-semibold text-white mb-2">Parcelas Fixas</h3>
+              <p className="text-gray-300">Valor das parcelas não sofre alteração</p>
             </div>
 
             <div className="text-center group">
               <div className="w-16 h-16 bg-bj-blue rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
                 <span className="text-2xl">⭐</span>
               </div>
-              <h3 className="text-xl font-semibold text-bj-black mb-2">Flexibilidade</h3>
-              <p className="text-gray-600">Escolha o imóvel quando for contemplado</p>
+              <h3 className="text-xl font-semibold text-white mb-2">Flexibilidade</h3>
+              <p className="text-gray-300">Escolha o imóvel quando for contemplado</p>
             </div>
 
             <div className="text-center group">
               <div className="w-16 h-16 bg-bj-blue rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
                 <span className="text-2xl">🎯</span>
               </div>
-              <h3 className="text-xl font-semibold text-bj-black mb-2">Objetivo Claro</h3>
-              <p className="text-gray-600">Você sabe exatamente quando terá seu imóvel</p>
+              <h3 className="text-xl font-semibold text-white mb-2">Objetivo Claro</h3>
+              <p className="text-gray-300">Você sabe exatamente quando terá seu imóvel</p>
             </div>
 
             <div className="text-center group">
               <div className="w-16 h-16 bg-bj-blue rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
                 <span className="text-2xl">🔒</span>
               </div>
-              <h3 className="text-xl font-semibold text-bj-black mb-2">Segurança</h3>
-              <p className="text-gray-600">Regulamentado pelo Banco Central</p>
+              <h3 className="text-xl font-semibold text-white mb-2">Segurança</h3>
+              <p className="text-gray-300">Regulamentado pelo Banco Central</p>
             </div>
 
             <div className="text-center group">
               <div className="w-16 h-16 bg-bj-blue rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
                 <span className="text-2xl">💡</span>
               </div>
-              <h3 className="text-xl font-semibold text-bj-black mb-2">Planejamento</h3>
-              <p className="text-gray-600">Organize suas finanças com tranquilidade</p>
+              <h3 className="text-xl font-semibold text-white mb-2">Planejamento</h3>
+              <p className="text-gray-300">Organize suas finanças com tranquilidade</p>
             </div>
 
             <div className="text-center group">
               <div className="w-16 h-16 bg-bj-blue rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
                 <span className="text-2xl">🤝</span>
               </div>
-              <h3 className="text-xl font-semibold text-bj-black mb-2">Suporte</h3>
-              <p className="text-gray-600">Acompanhamento completo do nosso time</p>
+              <h3 className="text-xl font-semibold text-white mb-2">Suporte</h3>
+              <p className="text-gray-300">Acompanhamento completo do nosso time</p>
             </div>
           </div>
         </div>
       </section>
 
       {/* How it Works Section */}
-      <section id="como-funciona" className="section-padding bg-gray-50">
+      <section id="como-funciona" className="section-padding bg-gray-900">
         <div className="container-custom">
           <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl font-bold text-bj-black mb-6">
+            <h2 className="text-3xl lg:text-4xl font-bold text-white mb-6">
               Como Funciona o Consórcio
             </h2>
-            <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+            <p className="text-gray-300 text-lg max-w-2xl mx-auto">
               Processo simples e transparente para você conquistar sua casa própria
             </p>
           </div>
@@ -286,90 +286,90 @@ Mensagem: ${formData.message}`
           <div className="grid lg:grid-cols-5 gap-8">
             <div className="text-center">
               <div className="w-16 h-16 bg-bj-blue text-white rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">1</div>
-              <h3 className="text-lg font-semibold text-bj-black mb-2">Simulação</h3>
-              <p className="text-gray-600">Faça uma simulação gratuita e descubra o valor da parcela</p>
+              <h3 className="text-lg font-semibold text-white mb-2">Simulação</h3>
+              <p className="text-gray-300">Faça uma simulação gratuita e descubra o valor da parcela</p>
             </div>
 
             <div className="text-center">
               <div className="w-16 h-16 bg-bj-blue text-white rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">2</div>
-              <h3 className="text-lg font-semibold text-bj-black mb-2">Adesão</h3>
-              <p className="text-gray-600">Assine o contrato e entre no grupo do consórcio</p>
+              <h3 className="text-lg font-semibold text-white mb-2">Adesão</h3>
+              <p className="text-gray-300">Assine o contrato e entre no grupo do consórcio</p>
             </div>
 
             <div className="text-center">
               <div className="w-16 h-16 bg-bj-blue text-white rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">3</div>
-              <h3 className="text-lg font-semibold text-bj-black mb-2">Pagamento</h3>
-              <p className="text-gray-600">Pague as parcelas mensais fixas sem juros</p>
+              <h3 className="text-lg font-semibold text-white mb-2">Pagamento</h3>
+              <p className="text-gray-300">Pague as parcelas mensais fixas sem juros</p>
             </div>
 
             <div className="text-center">
               <div className="w-16 h-16 bg-bj-blue text-white rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">4</div>
-              <h3 className="text-lg font-semibold text-bj-black mb-2">Contemplação</h3>
-              <p className="text-gray-600">Seja contemplado por sorteio ou lance</p>
+              <h3 className="text-lg font-semibold text-white mb-2">Contemplação</h3>
+              <p className="text-gray-300">Seja contemplado por sorteio ou lance</p>
             </div>
 
             <div className="text-center">
               <div className="w-16 h-16 bg-bj-blue text-white rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">5</div>
-              <h3 className="text-lg font-semibold text-bj-black mb-2">Casa Própria</h3>
-              <p className="text-gray-600">Escolha e compre seu imóvel com o crédito liberado</p>
+              <h3 className="text-lg font-semibold text-white mb-2">Casa Própria</h3>
+              <p className="text-gray-300">Escolha e compre seu imóvel com o crédito liberado</p>
             </div>
           </div>
         </div>
       </section>
 
       {/* Testimonials */}
-      <section className="section-padding bg-bj-blue-dark">
+      <section className="section-padding bg-gray-800">
         <div className="container-custom">
           <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl font-bold text-bj-black mb-6">
+            <h2 className="text-3xl lg:text-4xl font-bold text-white mb-6">
               Depoimentos de Clientes
             </h2>
           </div>
 
           <div className="grid lg:grid-cols-3 gap-8">
-            <div className="bg-gray-50 rounded-xl p-6">
+            <div className="bg-gray-700 rounded-xl p-6">
               <div className="flex items-center mb-4">
                 <div className="w-12 h-12 bg-bj-blue rounded-full flex items-center justify-center">
                   <span className="text-white font-bold">MR</span>
                 </div>
                 <div className="ml-4">
-                  <h4 className="font-semibold text-bj-black">Maria Rita</h4>
-                  <p className="text-gray-600 text-sm">Contemplada em 2023</p>
+                  <h4 className="font-semibold text-white">Maria Rita</h4>
+                  <p className="text-gray-300 text-sm">Contemplada em 2023</p>
                 </div>
               </div>
-              <p className="text-gray-600 italic">"Consegui minha casa própria sem comprometer o orçamento familiar. O atendimento foi excepcional!"</p>
+              <p className="text-gray-300 italic">"Consegui minha casa própria sem comprometer o orçamento familiar. O atendimento foi excepcional!"</p>
               <div className="flex text-yellow-400 mt-4">
                 ⭐⭐⭐⭐⭐
               </div>
             </div>
 
-            <div className="bg-gray-50 rounded-xl p-6">
+            <div className="bg-gray-700 rounded-xl p-6">
               <div className="flex items-center mb-4">
                 <div className="w-12 h-12 bg-bj-blue rounded-full flex items-center justify-center">
                   <span className="text-white font-bold">JS</span>
                 </div>
                 <div className="ml-4">
-                  <h4 className="font-semibold text-bj-black">João Silva</h4>
-                  <p className="text-gray-600 text-sm">Contemplado em 2023</p>
+                  <h4 className="font-semibold text-white">João Silva</h4>
+                  <p className="text-gray-300 text-sm">Contemplado em 2023</p>
                 </div>
               </div>
-              <p className="text-gray-600 italic">"Processo transparente e sem surpresas. Recomendo para quem quer sair do aluguel!"</p>
+              <p className="text-gray-300 italic">"Processo transparente e sem surpresas. Recomendo para quem quer sair do aluguel!"</p>
               <div className="flex text-yellow-400 mt-4">
                 ⭐⭐⭐⭐⭐
               </div>
             </div>
 
-            <div className="bg-gray-50 rounded-xl p-6">
+            <div className="bg-gray-700 rounded-xl p-6">
               <div className="flex items-center mb-4">
                 <div className="w-12 h-12 bg-bj-blue rounded-full flex items-center justify-center">
                   <span className="text-white font-bold">AF</span>
                 </div>
                 <div className="ml-4">
-                  <h4 className="font-semibold text-bj-black">Ana Fernandes</h4>
-                  <p className="text-gray-600 text-sm">Contemplada em 2024</p>
+                  <h4 className="font-semibold text-white">Ana Fernandes</h4>
+                  <p className="text-gray-300 text-sm">Contemplada em 2024</p>
                 </div>
               </div>
-              <p className="text-gray-600 italic">"Equipe muito atenciosa e sempre disposta a esclarecer todas as dúvidas. Obrigada!"</p>
+              <p className="text-gray-300 italic">"Equipe muito atenciosa e sempre disposta a esclarecer todas as dúvidas. Obrigada!"</p>
               <div className="flex text-yellow-400 mt-4">
                 ⭐⭐⭐⭐⭐
               </div>
@@ -486,33 +486,33 @@ Mensagem: ${formData.message}`
       </section>
 
       {/* FAQ Section */}
-      <section className="section-padding bg-bj-blue-dark">
+      <section className="section-padding bg-gray-900">
         <div className="container-custom">
           <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl font-bold text-bj-black mb-6">
+            <h2 className="text-3xl lg:text-4xl font-bold text-white mb-6">
               Perguntas Frequentes
             </h2>
           </div>
 
           <div className="max-w-3xl mx-auto space-y-6">
-            <div className="bg-gray-50 rounded-xl p-6">
-              <h3 className="font-semibold text-bj-black mb-3">O que é consórcio imobiliário?</h3>
-              <p className="text-gray-600">É um sistema de autofinanciamento para aquisição de imóveis, onde um grupo de pessoas se reúne para formar um fundo comum e adquirir bens de forma programada.</p>
+            <div className="bg-gray-800 rounded-xl p-6">
+              <h3 className="font-semibold text-white mb-3">O que é consórcio imobiliário?</h3>
+              <p className="text-gray-300">É um sistema de autofinanciamento para aquisição de imóveis, onde um grupo de pessoas se reúne para formar um fundo comum e adquirir bens de forma programada.</p>
             </div>
 
-            <div className="bg-gray-50 rounded-xl p-6">
-              <h3 className="font-semibold text-bj-black mb-3">Preciso dar entrada?</h3>
-              <p className="text-gray-600">Não é obrigatório dar entrada no consórcio. Você pode participar pagando apenas as parcelas mensais.</p>
+            <div className="bg-gray-800 rounded-xl p-6">
+              <h3 className="font-semibold text-white mb-3">Preciso dar entrada?</h3>
+              <p className="text-gray-300">Não é obrigatório dar entrada no consórcio. Você pode participar pagando apenas as parcelas mensais.</p>
             </div>
 
-            <div className="bg-gray-50 rounded-xl p-6">
-              <h3 className="font-semibold text-bj-black mb-3">Como funciona a contemplação?</h3>
-              <p className="text-gray-600">A contemplação acontece por sorteio mensal ou por lance. Cada grupo tem assembleia mensal para contemplar participantes.</p>
+            <div className="bg-gray-800 rounded-xl p-6">
+              <h3 className="font-semibold text-white mb-3">Como funciona a contemplação?</h3>
+              <p className="text-gray-300">A contemplação acontece por sorteio mensal ou por lance. Cada grupo tem assembleia mensal para contemplar participantes.</p>
             </div>
 
-            <div className="bg-gray-50 rounded-xl p-6">
-              <h3 className="font-semibold text-bj-black mb-3">Qual a diferença para o financiamento?</h3>
-              <p className="text-gray-600">No consórcio não há juros, apenas taxa de administração. As parcelas são fixas e você tem mais flexibilidade na escolha do imóvel.</p>
+            <div className="bg-gray-800 rounded-xl p-6">
+              <h3 className="font-semibold text-white mb-3">Qual a diferença para o financiamento?</h3>
+              <p className="text-gray-300">No consórcio não há juros, apenas taxa de administração. As parcelas são fixas e você tem mais flexibilidade na escolha do imóvel.</p>
             </div>
           </div>
         </div>
