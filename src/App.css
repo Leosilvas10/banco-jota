@@ -1,9 +1,13 @@
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
+@import "tailwindcss";
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+@theme {
+  --color-bj-blue-dark: #21253d;
+  --color-bj-blue: #364aa5;
+  --color-bj-blue-light: #6c74db;
+  --color-bj-black: #19191b;
+}
 
 html {
   scroll-behavior: smooth;
