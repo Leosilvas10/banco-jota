@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import './App.css'
+import { useLandingData } from './hooks/useLandingData.js'
 
 export default function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -11,6 +12,14 @@ export default function App() {
     message: '',
     lgpdConsent: false
   })
+
+  // Buscar dados da API do painel admin
+  const { landingData, loading, error, refetch } = useLandingData(true, 30000)
+
+  // Função para obter dados com fallback
+  const getData = (field, fallback) => {
+    return landingData?.data?.[field] || fallback
+  }
 
   const handleInputChange = (e) => {
     const { name, value, type, checked } = e.target
@@ -44,8 +53,47 @@ Mensagem: ${formData.message}`
     setIsMenuOpen(false)
   }
 
+  // Mostrar loading enquanto carrega dados da API
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-gray-900 flex items-center justify-center">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-bj-blue mx-auto mb-4"></div>
+          <p className="text-white">Carregando...</p>
+        </div>
+      </div>
+    )
+  }
+
+  // Mostrar erro se houver problema na API
+  if (error) {
+    return (
+      <div className="min-h-screen bg-gray-900 flex items-center justify-center">
+        <div className="text-center">
+          <div className="text-red-500 text-4xl mb-4">⚠️</div>
+          <p className="text-white mb-4">Erro ao carregar dados: {error}</p>
+          <button 
+            onClick={refetch}
+            className="bg-bj-blue hover:bg-bj-blue-dark text-white px-6 py-2 rounded-lg transition-all"
+          >
+            Tentar Novamente
+          </button>
+        </div>
+      </div>
+    )
+  }
+
   return (
     <div className="min-h-screen bg-gray-900">
+      {/* Debug Info - Remover em produção */}
+      {process.env.NODE_ENV === 'development' && landingData && (
+        <div className="fixed top-0 right-0 bg-black/80 text-white p-2 text-xs z-50 max-w-xs">
+          <div>API Status: ✅ Conectado</div>
+          <div>Última atualização: {new Date().toLocaleTimeString()}</div>
+          <div>Slug: {landingData.slug}</div>
+        </div>
+      )}
+
       {/* Navigation */}
       <nav className="fixed top-0 w-full bg-gray-900 shadow-lg z-50">
         <div className="container-custom">
@@ -99,16 +147,14 @@ Mensagem: ${formData.message}`
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <h1 className="text-4xl lg:text-6xl font-bold mb-6 leading-tight">
-                Realize o Sonho da<br/>
-                <span className="text-bj-blue-light">Casa Própria</span><br/>
-                Sem Juros
+                {getData('title', 'Realize o Sonho da Casa Própria Sem Juros')}
               </h1>
               <p className="text-xl mb-8 text-gray-200 max-w-lg">
-                Consórcio imobiliário com atendimento consultivo e humanizado. Parcelas fixas, sem juros e com condições especiais.
+                {getData('subtitle', 'Consórcio imobiliário com atendimento consultivo e humanizado. Parcelas fixas, sem juros e com condições especiais.')}
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <button onClick={() => scrollToSection('contato')} className="bg-white text-bj-blue hover:bg-gray-100 font-semibold py-4 px-8 rounded-lg transition-all">
-                  Simular Agora
+                  {getData('cta', 'Simular Agora')}
                 </button>
                 <button onClick={() => scrollToSection('sobre')} className="border-2 border-white text-white hover:bg-white hover:text-bj-blue font-semibold py-4 px-8 rounded-lg transition-all">
                   Saiba Mais
@@ -178,10 +224,10 @@ Mensagem: ${formData.message}`
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-3xl lg:text-4xl font-bold text-white mb-6">
-                Banco Jota: Especialistas em Consórcio Imobiliário
+                {getData('aboutTitle', 'Banco Jota: Especialistas em Consórcio Imobiliário')}
               </h2>
               <p className="text-gray-300 mb-6 text-lg">
-                Com anos de experiência no mercado, oferecemos atendimento consultivo personalizado para cada perfil de cliente. Nossa missão é tornar acessível o sonho da casa própria.
+                {getData('description', 'Com anos de experiência no mercado, oferecemos atendimento consultivo personalizado para cada perfil de cliente. Nossa missão é tornar acessível o sonho da casa própria.')}
               </p>
               <div className="space-y-4">
                 <div className="flex items-center space-x-3">
