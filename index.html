@@ -11,6 +11,28 @@
     <meta property="og:description" content="Atendimento consultivo especializado em consórcio. Realize seu sonho da casa própria com parcelas fixas e sem juros." />
     <meta property="og:type" content="website" />
     <title>Consórcio Imobiliário Banco Jota - Casa Própria Sem Juros</title>
+    <script>
+      // Script para atualizar meta tags dinamicamente com dados da API
+      window.addEventListener('DOMContentLoaded', async () => {
+        try {
+          const response = await fetch('https://painel-admin-backend-leonardosilvas2.replit.app/api/content/landing/banco-jota');
+          const data = await response.json();
+          
+          if (data.seo) {
+            if (data.seo.title) document.title = data.seo.title;
+            if (data.seo.description) {
+              document.querySelector('meta[name="description"]').setAttribute('content', data.seo.description);
+              document.querySelector('meta[property="og:description"]').setAttribute('content', data.seo.description);
+            }
+            if (data.seo.keywords) {
+              document.querySelector('meta[name="keywords"]').setAttribute('content', data.seo.keywords);
+            }
+          }
+        } catch (error) {
+          console.log('Usando meta tags padrão');
+        }
+      });
+    </script>
   </head>
   <body>
     <div id="root"></div>

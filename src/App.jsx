@@ -16,10 +16,18 @@ export default function App() {
   // Buscar dados da API do painel admin
   const { landingData, loading, error, refetch } = useLandingData(true, 30000)
 
-  // Função para obter dados com fallback
-  const getData = (field, fallback) => {
-    return landingData?.data?.[field] || fallback
+  // Função para obter dados com fallback baseado na estrutura do painel admin
+  const getData = (section, field, fallback) => {
+    if (!landingData) return fallback;
+    return landingData[section]?.[field] || fallback;
   }
+
+  // Função para obter dados de seções específicas
+  const getHeroData = (field, fallback) => getData('hero', field, fallback);
+  const getAboutData = (field, fallback) => getData('about', field, fallback);
+  const getContactData = (field, fallback) => getData('contact', field, fallback);
+  const getSeoData = (field, fallback) => getData('seo', field, fallback);
+  const getDesignData = (field, fallback) => getData('design', field, fallback);
 
   const handleInputChange = (e) => {
     const { name, value, type, checked } = e.target
@@ -43,7 +51,8 @@ Email: ${formData.email}
 Telefone: ${formData.phone}
 Mensagem: ${formData.message}`
 
-    const whatsappUrl = `https://wa.me/5511999999999?text=${encodeURIComponent(message)}`
+    const whatsappNumber = getContactData('whatsapp', '5511999999999');
+    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`
     window.open(whatsappUrl, '_blank')
   }
 
@@ -90,7 +99,10 @@ Mensagem: ${formData.message}`
         <div className="fixed top-0 right-0 bg-black/80 text-white p-2 text-xs z-50 max-w-xs">
           <div>API Status: ✅ Conectado</div>
           <div>Última atualização: {new Date().toLocaleTimeString()}</div>
-          <div>Slug: {landingData.slug}</div>
+          <div>Seções: {Object.keys(landingData).join(', ')}</div>
+          <div>Hero: {landingData.hero ? '✅' : '❌'}</div>
+          <div>About: {landingData.about ? '✅' : '❌'}</div>
+          <div>Contact: {landingData.contact ? '✅' : '❌'}</div>
         </div>
       )}
 
@@ -147,14 +159,14 @@ Mensagem: ${formData.message}`
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <h1 className="text-4xl lg:text-6xl font-bold mb-6 leading-tight">
-                {getData('title', 'Realize o Sonho da Casa Própria Sem Juros')}
+                {getHeroData('title', 'Realize o Sonho da Casa Própria Sem Juros')}
               </h1>
               <p className="text-xl mb-8 text-gray-200 max-w-lg">
-                {getData('subtitle', 'Consórcio imobiliário com atendimento consultivo e humanizado. Parcelas fixas, sem juros e com condições especiais.')}
+                {getHeroData('subtitle', 'Consórcio imobiliário com atendimento consultivo e humanizado. Parcelas fixas, sem juros e com condições especiais.')}
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <button onClick={() => scrollToSection('contato')} className="bg-white text-bj-blue hover:bg-gray-100 font-semibold py-4 px-8 rounded-lg transition-all">
-                  {getData('cta', 'Simular Agora')}
+                  {getHeroData('buttonText', 'Simular Agora')}
                 </button>
                 <button onClick={() => scrollToSection('sobre')} className="border-2 border-white text-white hover:bg-white hover:text-bj-blue font-semibold py-4 px-8 rounded-lg transition-all">
                   Saiba Mais
@@ -224,11 +236,11 @@ Mensagem: ${formData.message}`
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-3xl lg:text-4xl font-bold text-white mb-6">
-                {getData('aboutTitle', 'Banco Jota: Especialistas em Consórcio Imobiliário')}
+                {getAboutData('title', 'Banco Jota: Especialistas em Consórcio Imobiliário')}
               </h2>
-              <p className="text-gray-300 mb-6 text-lg">
-                {getData('description', 'Com anos de experiência no mercado, oferecemos atendimento consultivo personalizado para cada perfil de cliente. Nossa missão é tornar acessível o sonho da casa própria.')}
-              </p>
+              <div className="text-gray-300 mb-6 text-lg" dangerouslySetInnerHTML={{
+                __html: getAboutData('content', 'Com anos de experiência no mercado, oferecemos atendimento consultivo personalizado para cada perfil de cliente. Nossa missão é tornar acessível o sonho da casa própria.')
+              }} />
               <div className="space-y-4">
                 <div className="flex items-center space-x-3">
                   <div className="w-6 h-6 bg-bj-blue rounded-full flex items-center justify-center">
@@ -482,19 +494,19 @@ Mensagem: ${formData.message}`
                     <div className="w-6 h-6 bg-white rounded-full flex items-center justify-center mr-3">
                       <span className="text-bj-blue text-sm">📧</span>
                     </div>
-                    <span>contato@bancojota.com.br</span>
+                    <span>{getContactData('email', 'contato@bancojota.com.br')}</span>
                   </div>
                   <div className="flex items-center">
                     <div className="w-6 h-6 bg-white rounded-full flex items-center justify-center mr-3">
                       <span className="text-bj-blue text-sm">📱</span>
                     </div>
-                    <span>(11) 99999-9999</span>
+                    <span>{getContactData('phone', '(11) 99999-9999')}</span>
                   </div>
                   <div className="flex items-center">
                     <div className="w-6 h-6 bg-white rounded-full flex items-center justify-center mr-3">
                       <span className="text-bj-blue text-sm">📍</span>
                     </div>
-                    <span>São Paulo - SP</span>
+                    <span>{getContactData('address', 'São Paulo - SP')}</span>
                   </div>
                 </div>
 
