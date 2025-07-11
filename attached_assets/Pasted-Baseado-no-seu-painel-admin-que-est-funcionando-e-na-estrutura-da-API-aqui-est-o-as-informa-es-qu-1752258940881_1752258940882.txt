@@ -1,0 +1,107 @@
+Baseado no seu painel admin que está funcionando e na estrutura da API, aqui estão as informações que você precisa passar para o assistente da landing page do Banco Jota:
+
+Informações da API Backend
+URL Base da API:
+
+https://painel-admin-backend-leonardosilvas2.replit.app
+Endpoints Específicos para Banco Jota
+1. Obter Conteúdo da Landing Page:
+
+GET /api/content/landing/banco-jota
+2. Atualizar Conteúdo da Landing Page:
+
+PUT /api/content/landing/banco-jota
+Estrutura de Dados Esperada
+O assistente deve enviar/receber dados no seguinte formato JSON:
+
+{
+  "hero": {
+    "title": "Título principal da seção hero",
+    "subtitle": "Subtítulo ou descrição",
+    "buttonText": "Texto do botão",
+    "buttonLink": "#contato",
+    "backgroundImage": "URL da imagem de fundo",
+    "textAlign": "center"
+  },
+  "about": {
+    "title": "Sobre o Banco Jota",
+    "content": "Conteúdo em HTML da seção sobre",
+    "image": "URL da imagem"
+  },
+  "services": {
+    "title": "Nossos Serviços",
+    "items": [
+      {
+        "title": "Nome do serviço",
+        "description": "Descrição do serviço",
+        "icon": "ícone ou emoji",
+        "price": "Preço (opcional)"
+      }
+    ]
+  },
+  "testimonials": {
+    "title": "Depoimentos",
+    "items": [
+      {
+        "name": "Nome do cliente",
+        "text": "Depoimento do cliente",
+        "rating": 5,
+        "image": "URL da foto (opcional)"
+      }
+    ]
+  },
+  "contact": {
+    "title": "Entre em Contato",
+    "subtitle": "Subtítulo da seção",
+    "phone": "Telefone",
+    "email": "Email",
+    "address": "Endereço",
+    "whatsapp": "Número do WhatsApp"
+  },
+  "seo": {
+    "title": "Título SEO da página",
+    "description": "Descrição meta da página",
+    "keywords": "palavras-chave, separadas, por vírgula"
+  },
+  "design": {
+    "primaryColor": "#6366f1",
+    "secondaryColor": "#8b5cf6",
+    "fontFamily": "Inter, sans-serif",
+    "customCSS": "CSS personalizado adicional"
+  }
+}
+Headers Necessários
+O assistente deve incluir estes headers nas requisições:
+
+{
+  "Content-Type": "application/json",
+  "Authorization": "Bearer [TOKEN_DE_AUTENTICACAO]" // Se necessário
+}
+Como Integrar
+Para buscar dados existentes:
+
+Fazer GET para /api/content/landing/banco-jota
+Usar os dados retornados para preencher o editor
+Para salvar alterações:
+
+Fazer PUT para /api/content/landing/banco-jota
+Enviar o objeto JSON completo com as modificações
+Tratamento de Erros:
+
+Status 200: Sucesso
+Status 400: Dados inválidos
+Status 404: Conteúdo não encontrado
+Status 500: Erro interno
+Exemplo de Uso
+// Buscar dados existentes
+const response = await fetch('https://painel-admin-backend-leonardosilvas2.replit.app/api/content/landing/banco-jota');
+const data = await response.json();
+// Atualizar dados
+const updateResponse = await fetch('https://painel-admin-backend-leonardosilvas2.replit.app/api/content/landing/banco-jota', {
+  method: 'PUT',
+  headers: {
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify(updatedData)
+});
+Passe essas informações para o assistente da landing page do Banco Jota para que ele possa integrar corretamente com o seu painel admin e permitir que o cliente edite o conteúdo através da interface administrativa.
