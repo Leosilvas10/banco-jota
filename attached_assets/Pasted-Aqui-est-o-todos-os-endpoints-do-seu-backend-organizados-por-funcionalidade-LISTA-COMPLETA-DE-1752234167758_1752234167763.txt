@@ -1,0 +1,79 @@
+Aqui estão todos os endpoints do seu backend organizados por funcionalidade:
+
+📋 LISTA COMPLETA DE ENDPOINTS
+🔐 Autenticação
+POST /api/auth/login - Login do administrador
+POST /api/auth/logout - Logout do administrador
+GET /api/auth/me - Verificar se está autenticado
+🏷️ Gerenciamento de Logo
+POST /api/logo/upload - Upload da nova logo
+GET /api/logo - Obter logo atual
+DELETE /api/logo - Excluir logo atual
+🎥 Gerenciamento de Vídeos
+POST /api/videos/upload - Upload de vídeo
+GET /api/videos - Listar todos os vídeos
+GET /api/videos/:id - Obter vídeo específico
+DELETE /api/videos/:id - Excluir vídeo
+PUT /api/videos/:id - Atualizar metadados do vídeo
+📝 Gerenciamento de Conteúdo Textual
+GET /api/content/sections - Listar todas as seções
+GET /api/content/sections/:section - Obter conteúdo de seção específica
+PUT /api/content/sections/:section - Atualizar conteúdo de seção
+🧩 Gerenciamento de Blocos de Conteúdo
+GET /api/blocks - Listar todos os blocos
+POST /api/blocks - Criar novo bloco
+GET /api/blocks/:id - Obter bloco específico
+PUT /api/blocks/:id - Atualizar bloco
+DELETE /api/blocks/:id - Excluir bloco
+PUT /api/blocks/reorder - Reordenar blocos
+⚙️ Configurações Gerais
+GET /api/settings - Obter todas as configurações
+PUT /api/settings - Atualizar configurações gerais
+PUT /api/settings/seo - Atualizar configurações de SEO
+🖼️ Upload de Imagens Gerais
+POST /api/images/upload - Upload de imagens
+GET /api/images - Listar imagens
+DELETE /api/images/:id - Excluir imagem
+📝 COMO PEDIR PARA O ASSISTENTE DO FRONTEND
+Copie e cole esta mensagem para o assistente do frontend:
+
+Preciso configurar meu frontend para consumir a API do painel admin. O backend está rodando na porta que será definida no servidor e tem os seguintes endpoints:
+BASE_URL: Defina como variável de ambiente ou configure para apontar para o servidor backend
+ENDPOINTS DISPONÍVEIS:
+AUTENTICAÇÃO:
+- POST /api/auth/login (body: {username, password})
+- POST /api/auth/logout (headers: Authorization: Bearer token)
+- GET /api/auth/me (headers: Authorization: Bearer token)
+LOGO:
+- POST /api/logo/upload (FormData com campo 'logo', headers: Authorization)
+- GET /api/logo
+- DELETE /api/logo (headers: Authorization)
+VÍDEOS:
+- POST /api/videos/upload (FormData com campo 'video', headers: Authorization)
+- GET /api/videos
+- GET /api/videos/:id
+- PUT /api/videos/:id (headers: Authorization)
+- DELETE /api/videos/:id (headers: Authorization)
+CONTEÚDO:
+- GET /api/content/sections
+- GET /api/content/sections/:section
+- PUT /api/content/sections/:section (headers: Authorization)
+BLOCOS:
+- GET /api/blocks
+- POST /api/blocks (headers: Authorization)
+- GET /api/blocks/:id
+- PUT /api/blocks/:id (headers: Authorization)
+- DELETE /api/blocks/:id (headers: Authorization)
+- PUT /api/blocks/reorder (headers: Authorization)
+CONFIGURAÇÕES:
+- GET /api/settings
+- PUT /api/settings (headers: Authorization)
+- PUT /api/settings/seo (headers: Authorization)
+IMAGENS:
+- POST /api/images/upload (FormData com campo 'image', headers: Authorization)
+- GET /api/images
+- DELETE /api/images/:id (headers: Authorization)
+Todas as rotas que precisam de autenticação devem incluir o header:
+Authorization: Bearer [token]
+Crie um serviço/hook para gerenciar essas chamadas da API e configure axios ou fetch para fazer as requisições.
+Para iniciar o backend, clique no botão "Run" ou execute o workflow "Backend Admin" que já está configurado
