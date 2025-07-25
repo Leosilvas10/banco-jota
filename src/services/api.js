@@ -1,6 +1,7 @@
+// src/services/api.js
 
 // Configuração base da API
-const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:3001';
+const API_BASE_URL = import.meta.env.VITE_API_URL || process.env.REACT_APP_API_URL || 'http://localhost:5000';
 
 // Função helper para fazer requisições
 const apiRequest = async (endpoint, options = {}) => {
@@ -22,11 +23,9 @@ const apiRequest = async (endpoint, options = {}) => {
 
   try {
     const response = await fetch(`${API_BASE_URL}${endpoint}`, config);
-    
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
-    
     return await response.json();
   } catch (error) {
     console.error('API Request Error:', error);
@@ -65,7 +64,6 @@ export const logoService = {
   upload: async (logoFile) => {
     const formData = new FormData();
     formData.append('logo', logoFile);
-    
     return apiRequest('/api/logo/upload', {
       method: 'POST',
       body: formData
@@ -91,7 +89,6 @@ export const videoService = {
   upload: async (videoFile) => {
     const formData = new FormData();
     formData.append('video', videoFile);
-    
     return apiRequest('/api/videos/upload', {
       method: 'POST',
       body: formData
@@ -219,7 +216,6 @@ export const imageService = {
   upload: async (imageFile) => {
     const formData = new FormData();
     formData.append('image', imageFile);
-    
     return apiRequest('/api/images/upload', {
       method: 'POST',
       body: formData

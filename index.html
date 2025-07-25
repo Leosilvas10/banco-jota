@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="pt-BR">
   <head>
@@ -10,28 +9,121 @@
     <meta property="og:title" content="Consórcio Imobiliário Banco Jota - Casa Própria Sem Juros" />
     <meta property="og:description" content="Atendimento consultivo especializado em consórcio. Realize seu sonho da casa própria com parcelas fixas e sem juros." />
     <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.bancojota.com.br" />
+    <meta property="og:image" content="https://www.bancojota.com.br/og-image.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Consórcio Imobiliário Banco Jota - Casa Própria Sem Juros" />
+    <meta name="twitter:description" content="Atendimento consultivo especializado em consórcio. Realize seu sonho da casa própria com parcelas fixas e sem juros." />
     <title>Consórcio Imobiliário Banco Jota - Casa Própria Sem Juros</title>
     <script>
       // Script para atualizar meta tags dinamicamente com dados da API
       window.addEventListener('DOMContentLoaded', async () => {
         try {
-          const response = await fetch('https://painel-admin-backend-leonardosilvas2.replit.app/api/content/landing/banco-jota');
-          const data = await response.json();
+          // Configuração da URL da API baseada no ambiente
+          const API_URL = window.location.hostname === 'localhost' 
+            ? 'http://212.85.10.205:3000/api'  // Desenvolvimento
+            : 'https://www.bancojota.com.br/api';  // Produção
+            
+          console.log('🔄 Carregando dados SEO da API:', API_URL);
           
-          if (data.seo) {
-            if (data.seo.title) document.title = data.seo.title;
-            if (data.seo.description) {
-              document.querySelector('meta[name="description"]').setAttribute('content', data.seo.description);
-              document.querySelector('meta[property="og:description"]').setAttribute('content', data.seo.description);
+          const response = await fetch(`${API_URL}/content/landing/banco-jota`, {
+            method: 'GET',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            credentials: 'include'
+          });
+          
+          if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+          }
+          
+          const data = await response.json();
+          console.log('✅ Dados SEO carregados:', data);
+          
+          // Atualizar meta tags se existirem dados SEO
+          if (data.data && data.data.seo) {
+            const seo = data.data.seo;
+            
+            // Título da página
+            if (seo.title) {
+              document.title = seo.title;
+              document.querySelector('meta[property="og:title"]').setAttribute('content', seo.title);
+              document.querySelector('meta[name="twitter:title"]').setAttribute('content', seo.title);
             }
-            if (data.seo.keywords) {
-              document.querySelector('meta[name="keywords"]').setAttribute('content', data.seo.keywords);
+            
+            // Descrição
+            if (seo.description) {
+              document.querySelector('meta[name="description"]').setAttribute('content', seo.description);
+              document.querySelector('meta[property="og:description"]').setAttribute('content', seo.description);
+              document.querySelector('meta[name="twitter:description"]').setAttribute('content', seo.description);
+            }
+            
+            // Keywords
+            if (seo.keywords) {
+              document.querySelector('meta[name="keywords"]').setAttribute('content', seo.keywords);
+            }
+            
+            // Open Graph Image
+            if (seo.image) {
+              document.querySelector('meta[property="og:image"]').setAttribute('content', seo.image);
+            }
+            
+            console.log('✅ Meta tags atualizadas com sucesso!');
+          }
+          
+          // Atualizar dados gerais da landing page
+          if (data.data) {
+            // Título principal
+            if (data.data.title) {
+              document.querySelector('meta[property="og:title"]').setAttribute('content', data.data.title);
+            }
+            
+            // Subtítulo como descrição alternativa
+            if (data.data.subtitle && !data.data.seo?.description) {
+              document.querySelector('meta[name="description"]').setAttribute('content', data.data.subtitle);
+              document.querySelector('meta[property="og:description"]').setAttribute('content', data.data.subtitle);
             }
           }
+          
         } catch (error) {
-          console.log('Usando meta tags padrão');
+          console.log('⚠️ Usando meta tags padrão. Erro ao carregar da API:', error.message);
+          // Meta tags padrão já estão definidas no HTML
         }
       });
+    </script>
+    
+    <!-- Preload de recursos importantes -->
+    <link rel="preload" href="/src/index.jsx" as="script" />
+    
+    <!-- DNS Prefetch para melhor performance -->
+    <link rel="dns-prefetch" href="//212.85.10.205" />
+    
+    <!-- Schema.org structured data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FinancialService",
+      "name": "Banco Jota Consórcio Imobiliário",
+      "description": "Consórcio imobiliário com atendimento consultivo especializado para realizar o sonho da casa própria",
+      "url": "https://www.bancojota.com.br",
+      "serviceType": "Consórcio Imobiliário",
+      "areaServed": "Brasil",
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Planos de Consórcio Imobiliário",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Consórcio Casa Própria",
+              "description": "Financiamento imobiliário sem juros através de consórcio"
+            }
+          }
+        ]
+      }
+    }
     </script>
   </head>
   <body>

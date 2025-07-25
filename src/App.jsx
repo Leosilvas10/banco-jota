@@ -114,7 +114,7 @@ Mensagem: ${formData.message}`
               <img 
                 src="/attached_assets/logo-banco-jota_1752187109762.png" 
                 alt="Banco Jota" 
-                className="h-12 w-auto brightness-0 invert"
+                className="h-16 w-auto brightness-0 invert sm:h-14 md:h-16 lg:h-20 max-w-none transition-all duration-300 hover:scale-105"
               />
             </div>
 
@@ -173,7 +173,6 @@ Mensagem: ${formData.message}`
                 </button>
               </div>
             </div>
-
             <div className="relative">
               <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 text-center">
                 {/* Área de Upload de Vídeo */}
@@ -726,7 +725,7 @@ Mensagem: ${formData.message}`
               <img 
                 src="/attached_assets/logo-banco-jota_1752187109762.png" 
                 alt="Banco Jota" 
-                className="h-12 w-auto mb-4 brightness-0 invert"
+                className="h-16 w-auto mb-4 brightness-0 invert sm:h-14 md:h-16 lg:h-20 max-w-none transition-all duration-300"
               />
               <p className="text-gray-300">
                 Especialistas em consórcio imobiliário com atendimento humanizado e consultivo.
